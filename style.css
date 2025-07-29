@@ -51,7 +51,7 @@ header>nav {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0, 0.7); /* Navy overlay */
+  background: rgba(0,0,0, 0.8); /* Navy overlay */
   z-index: 0;
 }
 
@@ -59,6 +59,20 @@ header>nav {
 .hero-section .row {
   position: relative;
   z-index: 2;
+}
+
+.subheading {
+  list-style: none;
+  padding: 30px 0 0 0;
+}
+
+.subheading>li {
+  font-size: 18px;
+  padding: 5px 0;
+}
+
+.subheading>li>i {
+  color: #FF8000;
 }
 
 .hero-form-card {
@@ -93,7 +107,7 @@ header>nav {
 }
 
 .highlights-section {
-  background-color: #f9f9fc;
+  background-color: #001E51;
 }
 
 .highlight-box {
@@ -108,8 +122,8 @@ header>nav {
 }
 
 .icon {
-  font-size: 2rem;
-  color: #5e2ced; /* Jaipuria Purple */
+  font-size: 3rem;
+  color: #001E51;
 }
 
 .legacy-box {
@@ -142,6 +156,10 @@ header>nav {
 
 .text-orange {
   color: #FF8000 !important;
+}
+
+.bg-orange {
+  background: #FF8000;
 }
 
 
@@ -507,10 +525,11 @@ header>nav {
   }
 }
 
+
 /* TOOLS SECTION */
 .tools-section-ija {
-  background: linear-gradient(145deg, #122E5D, #0d1f3c);
   padding: 80px 20px;
+  background-color: #122E5D;
   color: #fff;
   text-align: center;
 }
@@ -523,16 +542,37 @@ header>nav {
 .tools-title-ija {
   font-size: 36px;
   color: #FF8000;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   font-weight: 700;
 }
 
-.tools-grid-ija {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 30px;
+.tool-row-ija {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  gap: 20px;
   align-items: center;
-  justify-items: center;
+  border: 2px solid #FF8000;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.tool-heading-ija {
+  flex: 1 1 200px;
+  max-width: 250px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  margin-top: 10px;
+  /* background: #000; */
+}
+
+.tools-grid-ija {
+  flex: 3 1 700px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
 }
 
 .tool-card-ija {
@@ -542,6 +582,7 @@ header>nav {
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(4px);
+  text-align: center;
 }
 
 .tool-card-ija img {
@@ -553,13 +594,31 @@ header>nav {
 
 .tool-card-ija p {
   font-size: 14px;
-  color: #fff;
+  color: #ffffff;
+  margin: 0;
 }
 
 .tool-card-ija:hover {
   transform: scale(1.07);
   box-shadow: 0 10px 20px rgba(255, 128, 0, 0.2);
 }
+
+.tool-icon-ija {
+  font-size: 32px;
+  color: #FF8000;
+  margin-bottom: 10px;
+}
+
+.tools-row-ija{
+  border: 2px solid #FF8000;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.tools-heading-ija{
+  align-content: center;
+}
+
 
 /* 5 phase journey  */
 .phase-roadmap {
