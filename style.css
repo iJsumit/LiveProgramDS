@@ -3,18 +3,22 @@ html {
 }
 
 /* Header Section  */
+header>nav {
+  height: 90px;
+}
+
 .header_logo {
   width: 150px;
   height: auto;
 }
 
 /* Hero Section  */
-.hero-section {
+/* .hero-section {
   position: relative;
   background: url('images/heroImage.webp') center center / cover no-repeat;
   width: auto;
   height: 70vh;
-  padding-top: 80px; /* offset for navbar */
+  margin-top: 90px;
 }
 
 .hero-section .overlay {
@@ -30,7 +34,50 @@ html {
   position: relative;
   z-index: 2;
   max-width: 800px;
+} */
+
+.hero-section {
+  position: relative;
+  width: auto;
+  height: 70vh;
+  margin-top: 90px;
+  background: url('images/heroImage.webp') no-repeat center center/cover;
+  z-index: 1;
 }
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, 0.7); /* Navy overlay */
+  z-index: 0;
+}
+
+.hero-section .container,
+.hero-section .row {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-form-card {
+  background-color: #ffffff;
+  border: none;
+}
+.hero-form-card input::placeholder {
+  color: #666;
+  font-weight: 400;
+}
+.hero-form-card .btn-primary {
+  background-color: #FF8000;
+  border-color: #FF8000;
+}
+.hero-form-card .btn-primary:hover {
+  background-color: #e67000;
+  border-color: #e67000;
+}
+
 
 /* Blue background section */
 .deadline-section {
