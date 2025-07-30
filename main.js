@@ -71,3 +71,25 @@ for (const sectionId in toolsData) {
       behavior: 'smooth'
     });
   }
+
+
+  // Get Form Values 
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("hero-form-ija");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevents page reload
+
+      const formData = new FormData(form);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      console.log("Form Submitted:", data);
+    });
+  }
+});
+
