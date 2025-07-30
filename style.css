@@ -18,6 +18,7 @@ header>nav {
   height: 70vh;
   margin-top: 90px;
   background: url('images/banner.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
   z-index: 1;
 }
 
@@ -37,6 +38,11 @@ header>nav {
   z-index: 2;
 }
 
+.heading {
+  transform: translateX(800px); /* start 100px to the left */
+  animation: slideInLeft 1s ease-out forwards;
+}
+
 .subheading {
   list-style: none;
   padding: 30px 0 0 0;
@@ -45,6 +51,16 @@ header>nav {
 .subheading>li {
   font-size: 18px;
   padding: 5px 0;
+  transform: translateX(-600px);
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .subheading>li>i {
@@ -71,7 +87,22 @@ header>nav {
 
 /* Blue background section */
 .deadline-section {
-  background-color: #ff8000; /* Adjust as needed */
+  background-color: #ff8000;
+}
+
+.deadline-section h2{
+  display: inline-block;
+  animation: zoomInOut 4s ease-in-out infinite;
+}
+
+/* Keyframes for zoom in and out */
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
 }
 
 /* Optional: Add vertical dividers for large screens */
@@ -507,6 +538,7 @@ header>nav {
 
 
 /* TOOLS SECTION */
+/* ===== TOOLS SECTION WRAPPER ===== */
 .tools-section-ija {
   padding: 80px 20px;
   background-color: #122E5D;
@@ -514,47 +546,69 @@ header>nav {
   text-align: center;
 }
 
+/* ===== CONTAINER ===== */
 .tools-container-ija {
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* ===== TITLE ===== */
 .tools-title-ija {
   font-size: 36px;
-  color: #FF8000;
+  color: #FFFFFF;
   margin-bottom: 60px;
   font-weight: 700;
 }
 
-.tool-row-ija {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  gap: 20px;
-  align-items: center;
-  border: 2px solid #FF8000;
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.tool-heading-ija {
-  flex: 1 1 200px;
-  max-width: 250px;
-  font-size: 20px;
-  font-weight: 600;
+/* ===== TABS STYLING ===== */
+.tools-tabs-ija .nav-link {
   color: #fff;
-  text-align: left;
-  margin-top: 10px;
-  /* background: #000; */
+  background: transparent;
+  border: 1px solid #FF8000;
+  margin: 0 8px;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
 }
 
+.tools-tabs-ija .nav-link.active {
+  background-color: #FF8000;
+  color: #122E5D;
+  border-color: #FF8000;
+}
+
+.tools-tabs-ija .nav-link:hover {
+  background-color: rgba(255, 128, 0, 0.2);
+  color: #FF8000;
+}
+
+/* ===== ANIMATION FOR TAB CONTENT ===== */
+.tab-pane {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TOOL GRID ===== */
 .tools-grid-ija {
-  flex: 3 1 700px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 20px;
+  padding: 20px 10px;
+  text-align: center;
 }
 
+/* ===== TOOL CARD ===== */
 .tool-card-ija {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -562,20 +616,6 @@ header>nav {
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(4px);
-  text-align: center;
-}
-
-.tool-card-ija img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.tool-card-ija p {
-  font-size: 14px;
-  color: #ffffff;
-  margin: 0;
 }
 
 .tool-card-ija:hover {
@@ -583,21 +623,60 @@ header>nav {
   box-shadow: 0 10px 20px rgba(255, 128, 0, 0.2);
 }
 
+/* ===== TOOL IMAGE ===== */
+.tool-card-ija img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* ===== TOOL TEXT ===== */
+.tool-card-ija p {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ===== TOOL ICON (OPTIONAL IF USING ICON FONT) ===== */
 .tool-icon-ija {
   font-size: 32px;
   color: #FF8000;
   margin-bottom: 10px;
 }
 
-.tools-row-ija{
-  border: 2px solid #FF8000;
-  border-radius: 10px;
-  padding: 25px;
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 576px) {
+  .tools-title-ija {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .tools-tabs-ija .nav-link {
+    margin: 5px 4px;
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .tools-grid-ija {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .tool-card-ija {
+    padding: 16px;
+  }
+
+  .tool-card-ija img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tool-card-ija p {
+    font-size: 13px;
+  }
 }
 
-.tools-heading-ija{
-  align-content: center;
-}
 
 
 /* 5 phase journey  */

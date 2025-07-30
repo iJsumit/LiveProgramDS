@@ -53,7 +53,7 @@
       <div class="row align-items-center py-5">
         <!-- LEFT: Content -->
         <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
-          <h1 class="display-4 fw-bold">AI-Powered Data Analytics</h1>
+          <h1 class="display-4 fw-bold heading">AI-Powered Data Analytics</h1>
           <ul class="subheading">
             <li>
               <i class="bi bi-arrow-return-right"></i>&nbsp;Built by iJaipuria
@@ -142,7 +142,7 @@
 
   <section class="deadline-section text-center text-white py-5">
     <div class="container">
-      <h4 class="mb-0 fw-semibold">SEATS FILLING SOON (50 Only)</h4>
+      <h2 class="mb-0 fw-bold">SEATS FILLING SOON (50 Only)</h2>
     </div>
   </section>
 
@@ -651,37 +651,45 @@
   </section>
 
   <!-- TOOLS SECTION -->
-  <section class="tools-section-ija">
-    <div class="tools-container-ija">
-      <h2 class="tools-title-ija">Tools You’ll Work With</h2>
+ <!-- TOOLS SECTION -->
+<section class="tools-section-ija">
+  <div class="tools-container-ija">
+    <h2 class="tools-title-ija">Tools You’ll Work With</h2>
 
-      <!-- AI & GenAI Mastery -->
-      <div class="row tools-row-ija">
-        <div class="col-md-3 tools-heading-ija">AI & GenAI Mastery</div>
-        <div class="col-md-9 tools-grid-ija" id="tools-ai"></div>
+    <!-- Tab Buttons -->
+    <ul class="tools-tabs-ija nav nav-pills mb-4 justify-content-center" id="toolsTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="ai-tab" data-bs-toggle="pill" data-bs-target="#ai-tab-pane" type="button" role="tab">AI & GenAI</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="bi-tab" data-bs-toggle="pill" data-bs-target="#bi-tab-pane" type="button" role="tab">Business Intelligence</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="dev-tab" data-bs-toggle="pill" data-bs-target="#dev-tab-pane" type="button" role="tab">Programming</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="de-tab" data-bs-toggle="pill" data-bs-target="#de-tab-pane" type="button" role="tab">Data Engineering</button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="toolsTabContent">
+      <div class="tab-pane fade show active" id="ai-tab-pane" role="tabpanel">
+        <div class="tools-grid-ija" id="tools-ai"></div>
       </div>
-
-      <!-- Business Intelligence -->
-      <div class="row tools-row-ija my-5">
-        <div class="col-md-9 tools-grid-ija" id="tools-bi"></div>
-        <div class="col-md-3 tools-heading-ija">Business Intelligence</div>
+      <div class="tab-pane fade" id="bi-tab-pane" role="tabpanel">
+        <div class="tools-grid-ija" id="tools-bi"></div>
       </div>
-
-      <!-- Programming & Development -->
-      <div class="row tools-row-ija mb-5">
-        <div class="col-md-3 tools-heading-ija">
-          Programming & Development
-        </div>
-        <div class="col-md-9 tools-grid-ija" id="tools-dev"></div>
+      <div class="tab-pane fade" id="dev-tab-pane" role="tabpanel">
+        <div class="tools-grid-ija" id="tools-dev"></div>
       </div>
-
-      <!-- Data Engineering -->
-      <div class="row tools-row-ija">
-        <div class="col-md-9 tools-grid-ija" id="tools-de"></div>
-        <div class="col-md-3 tools-heading-ija">Data Engineering</div>
+      <div class="tab-pane fade" id="de-tab-pane" role="tabpanel">
+        <div class="tools-grid-ija" id="tools-de"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section class="phase-roadmap">
     <!-- <div class="roadmap-overlay"></div> -->
