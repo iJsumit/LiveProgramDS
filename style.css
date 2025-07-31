@@ -756,7 +756,7 @@ a.header_logo:focus-visible {
 
 
 /* 5 phase journey  */
-.phase-roadmap {
+/* .phase-roadmap {
   position: relative;
   background: #f5f6f8;
   padding: 80px 20px;
@@ -866,106 +866,340 @@ a.header_logo:focus-visible {
   .phase-step h3 {
     margin-left: 60px;
   }
+} */
+
+  .main-timeline {
+    position: relative
 }
+
+.main-timeline:before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #c6c6c6;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+.main-timeline .timeline {
+    margin-bottom: 40px;
+    position: relative
+}
+
+.main-timeline .timeline:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.main-timeline .icon {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+
+.main-timeline .icon:before,
+.main-timeline .icon:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.33s ease-out 0s
+}
+
+.main-timeline .icon:before {
+    background: #fff;
+    border: 2px solid #232323;
+    left: -3px
+}
+
+.main-timeline .icon:after {
+    border: 2px solid #c6c6c6;
+    left: 3px
+}
+
+.main-timeline .timeline:hover .icon:before {
+    left: 3px
+}
+
+.main-timeline .timeline:hover .icon:after {
+    left: -3px
+}
+
+.main-timeline .date-content {
+    width: 50%;
+    float: left;
+    margin-top: 22px;
+    position: relative
+}
+
+.main-timeline .date-content:before {
+    content: "";
+    width: 36.5%;
+    height: 2px;
+    background: #c6c6c6;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0
+}
+
+.main-timeline .date-outer {
+    width: 125px;
+    height: 125px;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    z-index: 1
+}
+
+.main-timeline .date-outer:before,
+.main-timeline .date-outer:after {
+    content: "";
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.33s ease-out 0s
+}
+
+.main-timeline .date-outer:before {
+    background: #fff;
+    border: 2px solid #232323;
+    left: -6px
+}
+
+.main-timeline .date-outer:after {
+    border: 2px solid #c6c6c6;
+    left: 6px
+}
+
+.main-timeline .timeline:hover .date-outer:before {
+    left: 6px
+}
+
+.main-timeline .timeline:hover .date-outer:after {
+    left: -6px
+}
+
+.main-timeline .date {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 27%;
+    left: 0
+}
+
+.main-timeline .month {
+    font-size: 18px;
+    font-weight: 700
+}
+
+.main-timeline .year {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #232323;
+    line-height: 36px
+}
+
+.main-timeline .timeline-content {
+    width: 50%;
+    padding: 20px 0 20px 50px;
+    float: right
+}
+
+.main-timeline .title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0 0 15px 0
+}
+
+.main-timeline .description {
+    margin-bottom: 0
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content {
+    float: right
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content:before {
+    left: 10px
+}
+
+.main-timeline .timeline:nth-child(2n) .timeline-content {
+    padding: 20px 50px 20px 0;
+    text-align: right
+}
+
+@media only screen and (max-width: 991px) {
+    .main-timeline .date-content {
+        margin-top: 35px
+    }
+    .main-timeline .date-content:before {
+        width: 22.5%
+    }
+    .main-timeline .timeline-content {
+        padding: 10px 0 10px 30px
+    }
+    .main-timeline .title {
+        font-size: 17px
+    }
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+        padding: 10px 30px 10px 0
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-timeline:before {
+        margin: 0;
+        left: 7px
+    }
+    .main-timeline .timeline {
+        margin-bottom: 20px
+    }
+    .main-timeline .timeline:last-child {
+        margin-bottom: 0
+    }
+    .main-timeline .icon {
+        margin: auto 0
+    }
+    .main-timeline .date-content {
+        width: 95%;
+        float: right;
+        margin-top: 0
+    }
+    .main-timeline .date-content:before {
+        display: none
+    }
+    .main-timeline .date-outer {
+        width: 110px;
+        height: 110px
+    }
+    .main-timeline .date-outer:before,
+    .main-timeline .date-outer:after {
+        width: 110px;
+        height: 110px
+    }
+    .main-timeline .date {
+        top: 30%
+    }
+    .main-timeline .year {
+        font-size: 24px
+    }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+        width: 95%;
+        text-align: center;
+        padding: 10px 0
+    }
+    .main-timeline .title {
+        margin-bottom: 10px
+    }
+}
+
+.roadmap-heading {
+  text-align: center;
+  font-size: 36px;
+  color: #122E5D;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.main-timeline .date-outer:before {
+  border: 2px solid #FF8000 !important;
+}
+
+.main-timeline .icon:before {
+  border: 2px solid #FF8000 !important;
+}
+
+.main-timeline .title {
+  color: #122E5D;
+}
+
+.main-timeline .timeline:hover .title {
+  color: #FF8000;
+}
+
 
 /* MEET YOUR MENTOR SECTION */
-.mentor-section-ija {
-  padding: 80px 20px;
-  background-color: #f8f9fa;
-  border-top: 3px solid #FF8000;
-  border-bottom: 3px solid #FF8000;
+.faculty-section {
+  background-color: #f9fbff;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #122E5D;
+}
+
+.faculty-card {
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px);
+}
+
+.faculty-photo {
   width: 100%;
-}
-
-
-.mentor-header-ija {
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-
-.mentor-img-ija {
-  width: 140px;
-  height: 140px;
+  max-height: 250px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #FF8000;
-  margin-bottom: 20px;
-}
-
-.mentor-title-ija {
-  color: #122E5D;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.mentor-name-ija {
-  font-size: 24px;
-  font-weight: 600;
-  color: #000;
-}
-
-.mentor-role-ija {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.mentor-bio-ija {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.7;
-}
-
-.mentor-card-ija {
-  background: #fff;
-  border-left: 5px solid #FF8000;
-  padding: 20px;
   border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-.mentor-card-ija h4 {
+.faculty-name {
+  font-size: 1.25rem;
   color: #122E5D;
-  margin-bottom: 10px;
-  font-size: 18px;
   font-weight: 600;
 }
 
-.mentor-card-ija p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #333;
+.faculty-title {
+  font-size: 0.95rem;
 }
 
-.mentor-checklist-ija {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+.faculty-bio {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 10px;
 }
 
-.mentor-checklist-ija li {
-  margin-bottom: 8px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #333;
+/* Responsive: Stack cards on smaller screens */
+@media (max-width: 768px) {
+  .faculty-photo {
+    max-height: 220px;
+  }
+
+  .faculty-name {
+    font-size: 1.1rem;
+  }
+
+  .faculty-bio {
+    font-size: 0.9rem;
+  }
 }
 
-.mentor-quote-ija {
-  font-style: italic;
-  color: #122E5D;
-  font-size: 16px;
-  border-left: 4px solid #FF8000;
-  padding-left: 16px;
-  margin: 40px 0;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 
 

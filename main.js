@@ -8,11 +8,11 @@ const toolsData = {
     { name: "Zapier AI", iconClass: "bi bi-lightning-charge" },
     { name: "Pinecone", iconClass: "bi bi-diagram-3-fill" },
     { name: "Weaviate", iconClass: "bi bi-grid-1x2" },
-    { name: "Code Interpreter", iconClass: "bi bi-terminal" }
+    { name: "ChatGPTCode Interpreter", iconClass: "bi bi-terminal" }
   ],
   "tools-bi": [
-    { name: "Tableau", iconClass: "bi bi-bar-chart-line" },
-    { name: "Power BI", iconClass: "bi bi-graph-up" },
+    { name: "Tableau with Copilot", iconClass: "bi bi-bar-chart-line" },
+    { name: "Power BI with Copilot", iconClass: "bi bi-graph-up" },
     { name: "Flourish", iconClass: "bi bi-palette2" },
     { name: "Gapminder", iconClass: "bi bi-pie-chart" },
     { name: "Google Sheets", iconClass: "bi bi-table" },
