@@ -63,18 +63,18 @@ for (const sectionId in toolsData) {
 
 
 
-  function scrollTestimonials(direction) {
-    const container = document.getElementById('testimonial-scroll');
-    const scrollAmount = 350;
-    container.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth'
-    });
-  }
+function scrollTestimonials(direction) {
+  const container = document.getElementById('testimonial-scroll');
+  const scrollAmount = 350;
+  container.scrollBy({
+    left: direction === 'left' ? -scrollAmount : scrollAmount,
+    behavior: 'smooth'
+  });
+}
 
 
-  // Get Form Values 
-  document.addEventListener("DOMContentLoaded", function () {
+// Get Form Values 
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("hero-form-ija");
 
   if (form) {
@@ -92,4 +92,30 @@ for (const sectionId in toolsData) {
     });
   }
 });
+
+// REcruiters 
+
+  const carouselTrack = document.getElementById("carouselTrack");
+
+  const totalLogos = 25;
+  const extensions = ['png', 'jpg', 'jpeg'];
+
+  function getExtension(index) {
+    return extensions[index % extensions.length];
+  }
+
+  for (let i = 1; i <= totalLogos; i++) {
+    const ext = getExtension(i);
+    const logo = document.createElement("div");
+    logo.className = "logo";
+    logo.innerHTML = `<img src="images/recruiters/${i}.${ext}" alt="Recruiter ${i}">`;
+    carouselTrack.appendChild(logo);
+  }
+
+  // Optional: Enable mouse wheel horizontal scrolling
+  document.querySelector('.carousel-track').addEventListener('wheel', (evt) => {
+    evt.preventDefault();
+    carouselTrack.scrollLeft += evt.deltaY;
+  });
+
 
