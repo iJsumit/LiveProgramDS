@@ -131,42 +131,51 @@ addImages();
 
 // Pie Chart 
 const ctx = document.getElementById("audiencePieChart").getContext("2d");
-  new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: ["Freshers", "Small Business Owners", "Entrepreneurs", "Others"],
-      datasets: [
-        {
-          data: [20, 25, 30, 25],
-          backgroundColor: ["#FF8000", "#122E5D", "#f7b733", "#ccc"],
-          borderWidth: 2,
-          borderColor: "#fff",
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: {
-            color: "#333",
-            font: {
-              size: 14,
-              weight: "500",
-            },
+new Chart(ctx, {
+  type: "pie",
+  data: {
+    labels: [
+      "IT & Software Engineers",
+      "Non-tech Working Professionals",
+      "Fresh Graduates (Engineering/MBA)",
+      "Small Business Owners / Entrepreneurs",
+      "Marketing & Sales Professionals",
+      "Finance & Accounting Professionals",
+      "Operations / HR / Admin",
+      "Others"
+    ],
+    datasets: [
+      {
+        data: [25, 20, 18, 15, 8, 5, 4, 5],
+        backgroundColor: ["#FF8000", "#122E5D", "#f7b733", "#4CAF50", "#e91e63", "#9c27b0", "#00bcd4", "#ccc"],
+        borderWidth: 2,
+        borderColor: "#fff",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#333",
+          font: {
+            size: 14,
+            weight: "500",
           },
         },
-        tooltip: {
-          callbacks: {
-            label: function (context) {
-              return `${context.label}: ${context.parsed}%`;
-            },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `${context.label}: ${context.parsed}%`;
           },
         },
       },
     },
-  });
+  },
+});
 
 // Testimonials Object 
 const testimonials = [
@@ -210,10 +219,10 @@ const testimonials = [
 
 
 const carouselInner = document.getElementById('testimonial-carousel-inner');
-  for (let i = 0; i < testimonials.length; i += 3) {
-    const group = testimonials.slice(i, i + 3);
-    const isActive = i === 0 ? 'active' : '';
-    const itemsHTML = group.map(item => `
+for (let i = 0; i < testimonials.length; i += 3) {
+  const group = testimonials.slice(i, i + 3);
+  const isActive = i === 0 ? 'active' : '';
+  const itemsHTML = group.map(item => `
       <div class="col-md-4 mb-4">
         <div class="testimonial-card p-4 bg-white shadow rounded text-center h-100">
           <img src="images/${item.image}" alt="${item.name}" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover;">
@@ -224,12 +233,12 @@ const carouselInner = document.getElementById('testimonial-carousel-inner');
       </div>
     `).join('');
 
-    const slideHTML = `
+  const slideHTML = `
       <div class="carousel-item ${isActive}">
         <div class="row justify-content-center">
           ${itemsHTML}
         </div>
       </div>
     `;
-    carouselInner.insertAdjacentHTML('beforeend', slideHTML);
-  }
+  carouselInner.insertAdjacentHTML('beforeend', slideHTML);
+}

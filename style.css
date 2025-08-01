@@ -353,10 +353,6 @@ a.header_logo:focus-visible {
   .who-demographics .row {
     flex-direction: column;
   }
-
-  .section-title {
-    text-align: center;
-  }
 }
 
 
@@ -366,6 +362,7 @@ a.header_logo:focus-visible {
   border-left: 4px solid #FF8000;
   transition: all 0.3s ease;
 }
+
 .testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -375,7 +372,8 @@ a.header_logo:focus-visible {
 .carousel-control-next-icon {
   width: 40px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.5); /* dark background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* dark background */
   background-size: 100% 100%;
   border-radius: 50%;
 }
@@ -740,120 +738,7 @@ a.header_logo:focus-visible {
   }
 }
 
-
-
-/* 5 phase journey  */
-/* .phase-roadmap {
-  position: relative;
-  background: #f5f6f8;
-  padding: 80px 20px;
-  overflow: hidden;
-}
-.roadmap-overlay {
-  position: absolute;
-  top: 0;
-  right: -200px;
-  width: 600px;
-  height: 100%;
-  background: #122E5D;
-  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
-  opacity: 0.1;
-}
-.roadmap-container {
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-}
-.roadmap-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #122E5D;
-  font-weight: 700;
-  margin-bottom: 60px;
-}
-.roadmap-track {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  gap: 20px;
-  flex-wrap: nowrap;
-}
-.roadmap-track::before {
-  content: '';
-  position: absolute;
-  top: 60px;
-  left: 5%;
-  width: 90%;
-  height: 4px;
-  background: linear-gradient(90deg, #FF8000, #122E5D);
-  z-index: 1;
-}
-.phase-step {
-  position: relative;
-  width: 18%;
-  background: #fff;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  text-align: left;
-  z-index: 2;
-  transition: transform 0.4s ease;
-}
-.phase-step:hover {
-  transform: translateY(-12px);
-}
-.phase-dot {
-  position: absolute;
-  top: -25px;
-  left: calc(50% - 25px);
-  width: 50px;
-  height: 50px;
-  background: #FF8000;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.25rem;
-  border-radius: 50%;
-  line-height: 50px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.phase-step h3 {
-  margin-top: 35px;
-  font-size: 1.1rem;
-  color: #122E5D;
-  font-weight: 600;
-}
-.phase-step ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 12px;
-}
-.phase-step ul li {
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-
-@media(max-width: 992px) {
-  .roadmap-track {
-    flex-direction: column;
-    align-items: center;
-  }
-  .roadmap-track::before {
-    display: none;
-  }
-  .phase-step {
-    width: 90%;
-    margin-bottom: 40px;
-  }
-  .phase-dot {
-    left: 20px;
-  }
-  .phase-step h3 {
-    margin-left: 60px;
-  }
-} */
+/* 5 phase Journey */
 
 .main-timeline {
   position: relative
