@@ -79,43 +79,157 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (form) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevents page reload
+      e.preventDefault();
 
       const formData = new FormData(form);
-      const data = {};
 
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
-
-      console.log("Form Submitted:", data);
+      fetch("send-email.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.success) {
+            alert("Your message has been sent successfully!");
+            form.reset();
+          } else {
+            alert("Error: " + result.message);
+          }
+        })
+        .catch((error) => {
+          alert("An error occurred while sending the email.");
+          console.error(error);
+        });
     });
   }
 });
 
+
 // REcruiters 
 
-  const carouselTrack = document.getElementById("carouselTrack");
+const fileExtensions = {
+  1: 'jpeg', 2: 'png', 3: 'png', 4: 'jpg', 5: 'png',
+  6: 'png', 7: 'jpg', 8: 'jpg', 9: 'png', 10: 'jpeg',
+  11: 'png', 12: 'png', 13: 'png', 14: 'jpeg', 15: 'png',
+  16: 'png', 17: 'jpg', 18: 'jpeg', 19: 'png', 20: 'png',
+  21: 'png', 22: 'jpg', 23: 'png', 24: 'png', 25: 'jpg'
+};
 
-  const totalLogos = 25;
-  const extensions = ['png', 'jpg', 'jpeg'];
+const marqueeTrack = document.getElementById("marqueeTrack");
 
-  function getExtension(index) {
-    return extensions[index % extensions.length];
+function addImages() {
+  for (let i = 1; i <= 25; i++) {
+    const ext = fileExtensions[i];
+    const img = document.createElement("img");
+    img.src = `images/recruiters/${i}.${ext}`;
+    img.alt = `Recruiter ${i}`;
+    marqueeTrack.appendChild(img);
   }
+}
+addImages();
+addImages();
 
-  for (let i = 1; i <= totalLogos; i++) {
-    const ext = getExtension(i);
-    const logo = document.createElement("div");
-    logo.className = "logo";
-    logo.innerHTML = `<img src="images/recruiters/${i}.${ext}" alt="Recruiter ${i}">`;
-    carouselTrack.appendChild(logo);
-  }
-
-  // Optional: Enable mouse wheel horizontal scrolling
-  document.querySelector('.carousel-track').addEventListener('wheel', (evt) => {
-    evt.preventDefault();
-    carouselTrack.scrollLeft += evt.deltaY;
+// Pie Chart 
+const ctx = document.getElementById("audiencePieChart").getContext("2d");
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Freshers", "Small Business Owners", "Entrepreneurs", "Others"],
+      datasets: [
+        {
+          data: [20, 25, 30, 25],
+          backgroundColor: ["#FF8000", "#122E5D", "#f7b733", "#ccc"],
+          borderWidth: 2,
+          borderColor: "#fff",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: {
+            color: "#333",
+            font: {
+              size: 14,
+              weight: "500",
+            },
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return `${context.label}: ${context.parsed}%`;
+            },
+          },
+        },
+      },
+    },
   });
 
+// Testimonials Object 
+const testimonials = [
+  {
+    heading: "“From confused to confident in 10 weeks.”",
+    message: "I had zero technical background. Today, I build dashboards, write SQL queries, and even use GenAI to automate insights. This program gave me momentum I was missing for years.",
+    name: "— Divya S., MBA Graduate",
+    image: "femaleT.png"
+  },
+  {
+    heading: "“It’s not just a course. It’s a career reset.”",
+    message: "I was stuck in a support role for 5 years. This program gave me clarity, structure, and skills to finally make the shift. Landed my first analytics job within 2 months of completion.",
+    name: "— Prashant R., Career Switcher",
+    image: "maleT.png"
+  },
+  {
+    heading: "“The GenAI part blew my mind.”",
+    message: "I never imagined using AI tools to build reports or automate workflows. This isn’t theoretical — you actually build things that matter.",
+    name: "— Ankita T., MIS Executive",
+    image: "femaleT.png"
+  },
+  {
+    heading: "“The weekend structure worked perfectly.”",
+    message: "As a working professional, I couldn’t afford to quit. The live + self-paced format was intense but manageable. The mentors were outstanding.",
+    name: "— Karan J., Marketing Analyst",
+    image: "maleT.png"
+  },
+  {
+    heading: "“Way better than YouTube or recorded courses.”",
+    message: "I had tried self-learning for months and kept quitting. This program’s structure, doubt support, and live guidance made all the difference.",
+    name: "— Rhea N., Graduate",
+    image: "femaleT.png"
+  },
+  {
+    heading: "“It made me believe in myself again.”",
+    message: "I used to feel intimidated by tech. Today, I present data stories to clients. This course didn’t just teach me — it transformed me.",
+    name: "— Mohammed A., Small Business Owner",
+    image: "maleT.png"
+  }
+];
 
+
+const carouselInner = document.getElementById('testimonial-carousel-inner');
+  for (let i = 0; i < testimonials.length; i += 3) {
+    const group = testimonials.slice(i, i + 3);
+    const isActive = i === 0 ? 'active' : '';
+    const itemsHTML = group.map(item => `
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card p-4 bg-white shadow rounded text-center h-100">
+          <img src="images/${item.image}" alt="${item.name}" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover;">
+          <h6 class="fw-bold mb-2">${item.heading}</h6>
+          <p class="small fst-italic text-muted">"${item.message}"</p>
+          <strong class="d-block mt-3 text-dark">${item.name}</strong>
+        </div>
+      </div>
+    `).join('');
+
+    const slideHTML = `
+      <div class="carousel-item ${isActive}">
+        <div class="row justify-content-center">
+          ${itemsHTML}
+        </div>
+      </div>
+    `;
+    carouselInner.insertAdjacentHTML('beforeend', slideHTML);
+  }
