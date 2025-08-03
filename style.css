@@ -21,6 +21,14 @@ html {
   text-align: center;
 }
 
+.text-orange {
+  color: #FF8000 !important;
+}
+
+.bg-orange {
+  background: #FF8000 !important;
+}
+
 /* Header Section  */
 header>nav {
   height: 90px;
@@ -219,8 +227,9 @@ a.header_logo:focus-visible {
   background-color: #001E51;
 }
 
-.highlights-section .icon {
-  color: #FF8000;
+.highlights-section i {
+  font-size: 4rem;
+  color: #FF8000
 }
 
 .highlight-box {
@@ -234,15 +243,11 @@ a.header_logo:focus-visible {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.icon {
-  font-size: 4rem;
-  color: #001E51;
-}
-
+/* Recruiters Marquee  */
 .recruiter-marquee {
   overflow: hidden;
   background: #f9f9f9;
-  padding: 40px 0 60px 0;
+  padding: 60px 0;
   position: relative;
 }
 
@@ -286,14 +291,21 @@ a.header_logo:focus-visible {
   }
 }
 
-
-
-.text-orange {
-  color: #FF8000 !important;
+/* Curriculum  */
+.learning-advantage .card {
+  border-radius: 1rem !important;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-.bg-orange {
-  background: #FF8000;
+.learning-advantage .card i {
+  font-size: 4rem !important;
+  color: #001E51;
+}
+
+.learning-advantage .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -342,11 +354,11 @@ a.header_logo:focus-visible {
 
 /* Pie Chart Styling */
 #audiencePieChart {
-  max-width: 360px;
+  /* max-width: 360px; */
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  background: #fff;
+  /* margin: 0 auto; */
+  background: #ffffff;
   border-radius: 8px;
   padding: 10px;
 }
@@ -1084,14 +1096,11 @@ a.header_logo:focus-visible {
 }
 
 
-
-
-
-
-
 /* CTA  */
 .cta-urgency-section {
-  background: linear-gradient(to right, #122E5D, #1C3C72);
+  /* background-color: linear-gradient(to right, #122E5D, #1C3C72); */
+  background: url('images/waiting.jpg') center top/cover no-repeat;
+  background-attachment: fixed;
   color: #fff;
   padding: 80px 20px;
   text-align: center;
@@ -1099,6 +1108,9 @@ a.header_logo:focus-visible {
 }
 
 .cta-urgency-wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px 0;
+  border-radius: 1rem;
   max-width: 1100px;
   margin: auto;
 }
