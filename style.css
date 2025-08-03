@@ -2,25 +2,39 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global CSS  */
+.ijbtn:hover,
+.ijbtn:focus {
+  background: #001E51;
+}
+
+.form-control:focus {
+  border: none !important;
+  border-color: transparent !important;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 /* Header Section  */
 header>nav {
   height: 90px;
-
-  .header_logo {
-    width: 150px;
-    height: auto;
-  }
 }
 
-/* .header_logo {
+.header_logo {
   width: 150px;
   height: auto;
-} */
+}
 
 a.header_logo:focus,
 a.header_logo:focus-visible {
   outline: none;
-  box-shadow: none;
+  /* box-shadow: none; */
 }
 
 /* Hero Section  */
@@ -225,12 +239,6 @@ a.header_logo:focus-visible {
   color: #001E51;
 }
 
-.section-title {
-  /* color: #FFFFFF; */
-  font-weight: 700;
-  font-size: 2rem;
-}
-
 .recruiter-marquee {
   overflow: hidden;
   background: #f9f9f9;
@@ -249,6 +257,7 @@ a.header_logo:focus-visible {
 .marquee-track img {
   height: 90px;
   margin: 0 30px;
+  padding: 5px;
   vertical-align: middle;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -293,13 +302,6 @@ a.header_logo:focus-visible {
 .who-demographics {
   background: linear-gradient(135deg, #122E5D, #1c1c1c);
   color: #fff;
-}
-
-/* Section Headings */
-.section-title {
-  color: #FF8000;
-  font-size: 1.8rem;
-  font-weight: 700;
 }
 
 /* Info Card */
@@ -1032,12 +1034,6 @@ a.header_logo:focus-visible {
 /* MEET YOUR MENTOR SECTION */
 .faculty-section {
   background-color: #f9fbff;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #122E5D;
 }
 
 .faculty-card {

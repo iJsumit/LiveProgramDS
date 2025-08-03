@@ -27,7 +27,10 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav align-items-center">
+          <ul class="navbar-nav align-items-center fw-bold">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#curriculum">Curriculum</a>
             </li>
@@ -35,10 +38,10 @@
               <a class="nav-link" href="#testimonials">Testimonials</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#mentor">Faculty</a>
+              <a class="nav-link" href="#faculties">Faculty</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ms-3 bg-orange border-0" href="#enroll">Enroll Now</a>
+              <a class="btn btn-primary ms-3 bg-orange border-0 ijbtn" href="#enroll">Download Brochure</a>
             </li>
           </ul>
         </div>
@@ -46,6 +49,7 @@
     </nav>
   </header>
 
+  <!-- Hero Section  -->
   <section class="hero-section d-flex align-items-center text-white position-relative">
     <div class="overlay"></div>
 
@@ -102,10 +106,16 @@
                   <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required />
                 </div>
                 <div class="col-md-6">
-                  <input type="tel" name="experience" class="form-control" placeholder="Experience" required />
+                  <select name="experience" class="form-control" required>
+                    <option value="" disabled selected>Experience</option>
+                    <option value="zero_two">0&ndash;2 years</option>
+                    <option value="tow_five">2&ndash;5 years</option>
+                    <option value="five_ten">5&ndash;10 years</option>
+                    <option value="ten_thirty">10&ndash;30 years</option>
+                  </select>
                 </div>
                 <div class="col-md-6">
-                  <input type="tel" name="city" class="form-control" placeholder="City" required />
+                  <input type="text" name="city" class="form-control" placeholder="City" required />
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary w-100">
@@ -178,7 +188,6 @@
   </section>
 
   <!-- Deadline Section  -->
-
   <section class="deadline-section text-center text-white py-5">
     <div class="container">
       <h2 class="mb-0 fw-bold">SEATS FILLING SOON</h2>
@@ -188,13 +197,13 @@
   <!-- PROGRAM HIGHLIGHTS SECTION -->
   <section class="highlights-section py-5">
     <div class="container text-center">
-      <h2 class="fw-bold mb-4 text-white">Program Highlights</h2>
+      <h2 class="section-title mb-4 text-white">Program Highlights</h2>
       <div class="row g-4 pt-4">
         <div class="col-md-3">
           <div class="highlight-box p-4 shadow-sm h-100">
             <i class="bi bi-award-fill icon"></i>
             <h5 class="fw-semibold mt-3">
-              From the House of <strong>Jaipuria</strong> – 80+ Years of
+              From the House of <strong>Jaipuria</strong><br>80+ Years of
               Excellence in Education
             </h5>
           </div>
@@ -211,7 +220,7 @@
 
         <div class="col-md-3">
           <div class="highlight-box p-4 shadow-sm h-100">
-            <i class="bi bi-clock-history icon"></i>
+            <i class="bi bi-globe-americas icon"></i>
             <h5 class="fw-semibold mt-3">
               World Class Faculties & Industry Masterclasses
             </h5>
@@ -267,10 +276,9 @@
   </section>
 
   <!-- Top Recruiters Section -->
-
   <section class="recruiter-marquee">
-    <h2 class="section-title mb-5 text-orange text-center">
-      TRUSTED BY TOP RECRUITERS
+    <h2 class="section-title mb-5 text-orange">
+      Trusted by top recruiters
     </h2>
     <div class="marquee-track" id="marqueeTrack"></div>
   </section>
@@ -435,7 +443,7 @@
 
 
   <!-- Testimonials  -->
-  <section class="testimonial-section py-5 bg-light">
+  <section class="testimonial-section py-5 bg-light" id="testimonials">
     <div class="container">
       <h2 class="text-center mb-5 text-orange">Learner Testimonials</h2>
       <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"
@@ -861,6 +869,8 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="main.js"></script>
 </body>
 
