@@ -91,13 +91,13 @@
         <div class="col-lg-6">
           <div class="card hero-form-card p-4 rounded-4 shadow-lg">
             <h5 class="mb-4 text-dark text-center">Join the Program</h5>
-            <form id="hero-form-ija">
+            <form id="hero-form-ija" action="demo.php" method="POST">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <input type="text" name="firstName" class="form-control" placeholder="First Name" required />
+                  <input type="text" name="fName" class="form-control" placeholder="First Name" required />
                 </div>
                 <div class="col-md-6">
-                  <input type="text" name="lastName" class="form-control" placeholder="Last Name" required />
+                  <input type="text" name="lName" class="form-control" placeholder="Last Name" required />
                 </div>
                 <div class="col-md-6">
                   <input type="email" name="email" class="form-control" placeholder="Email Address" required />
@@ -475,8 +475,6 @@
     </div>
   </section>
 
-
-
   <!-- Certificate Section  -->
   <section class="certificate-section py-5">
     <div class="container">
@@ -687,18 +685,16 @@
     </div>
   </section>
 
+  <!-- CTA Section  -->
   <section class="cta-urgency-section">
+    <div class="overlay"></div>
     <div class="cta-urgency-wrapper">
       <h2 class="cta-urgency-heading">WAITING DOESN’T WIN RAISES</h2>
-      <p class="cta-urgency-subtext">
-        While you're thinking, others are transforming:
-      </p>
+      <h4 class="cta-urgency-subtext">While you're thinking, others are transforming:</h4>
 
       <ul class="cta-urgency-points">
         <li><strong>Data Science roles</strong> growing 35% year-over-year</li>
-        <li>
-          <strong>Average salary increase</strong> for skilled professionals: 45%
-        </li>
+        <li><strong>Average salary increase</strong> for skilled professionals: 45%</li>
         <li><strong>AI-powered roles</strong> commanding 70% premium over traditional positions</li>
         <li><strong>Entry barriers</strong> increase every month as competition intensifies</li>
       </ul>

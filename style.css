@@ -5,7 +5,7 @@ html {
 /* Global CSS  */
 .ijbtn:hover,
 .ijbtn:focus {
-  background: #001E51;
+  background: #001E51 !important;
 }
 
 .form-control:focus {
@@ -1098,7 +1098,6 @@ a.header_logo:focus-visible {
 
 /* CTA  */
 .cta-urgency-section {
-  /* background-color: linear-gradient(to right, #122E5D, #1C3C72); */
   background: url('images/waiting.jpg') center top/cover no-repeat;
   background-attachment: fixed;
   color: #fff;
@@ -1108,11 +1107,10 @@ a.header_logo:focus-visible {
 }
 
 .cta-urgency-wrapper {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px 0;
   border-radius: 1rem;
   max-width: 1100px;
   margin: auto;
+  z-index: 200;
 }
 
 .cta-urgency-heading {
@@ -1138,10 +1136,10 @@ a.header_logo:focus-visible {
 
 .cta-urgency-points li {
   margin-bottom: 14px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
+  align-items: center; */
+  /* gap: 10px; */
 }
 
 /* MARKET REALITY CHECK CARDS */
