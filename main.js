@@ -101,14 +101,14 @@ function scrollTestimonials(direction) {
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("hero-form-ija");
-    const submitBtn = form.querySelector("button[type='submit']");
+  const form = document.getElementById("hero-form-ija");
+  const submitBtn = form.querySelector("button[type='submit']");
 
-    form.addEventListener("submit", function () {
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Submitting...";
-    });
+  form.addEventListener("submit", function () {
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
   });
+});
 
 
 
@@ -162,13 +162,13 @@ new Chart(ctx, {
   type: "pie",
   data: {
     labels: [
-      "IT & Software Engineers",
+      "Marketing & Sales Professionals",
       "Non-tech Working Professionals",
       "Fresh Graduates (Engineering/MBA)",
       "Small Business Owners / Entrepreneurs",
-      "Marketing & Sales Professionals",
-      "Finance & Accounting Professionals",
       "Operations / HR / Admin",
+      "Finance & Accounting Professionals",
+      "IT & Software Engineers",
       "Others",
     ],
     datasets: [
@@ -223,7 +223,7 @@ const testimonials = [
     image: "femaleT.png",
   },
   {
-    heading: "“It’s not just a course. It’s a career reset.”",
+    heading: "“It's not just a course. It's a career reset.”",
     message:
       "I was stuck in a support role for 5 years. This program gave me clarity, structure, and skills to finally make the shift. Landed my first analytics job within 2 months of completion.",
     name: "— Prashant R., Career Switcher",
@@ -239,21 +239,21 @@ const testimonials = [
   {
     heading: "“The weekend structure worked perfectly.”",
     message:
-      "As a working professional, I couldn’t afford to quit. The live + self-paced format was intense but manageable. The mentors were outstanding.",
+      "As a working professional, I couldn't afford to quit. The live + self-paced format was intense but manageable. The mentors were outstanding.",
     name: "— Karan J., Marketing Analyst",
     image: "maleT.png",
   },
   {
     heading: "“Way better than YouTube or recorded courses.”",
     message:
-      "I had tried self-learning for months and kept quitting. This program’s structure, doubt support, and live guidance made all the difference.",
+      "I had tried self-learning for months and kept quitting. This program's structure, doubt support, and live guidance made all the difference.",
     name: "— Rhea N., Graduate",
     image: "femaleT.png",
   },
   {
     heading: "“It made me believe in myself again.”",
     message:
-      "I used to feel intimidated by tech. Today, I present data stories to clients. This course didn’t just teach me — it transformed me.",
+      "I used to feel intimidated by tech. Today, I present data stories to clients. This course didn't just teach me — it transformed me.",
     name: "— Mohammed A., Small Business Owner",
     image: "maleT.png",
   },
@@ -267,7 +267,7 @@ for (let i = 0; i < testimonials.length; i += 3) {
     .map(
       (item) => `
       <div class="col-md-4 mb-4">
-        <div class="testimonial-card p-4 bg-white shadow rounded text-center h-100">
+        <div class="testimonial-card p-4 bg-white shadow text-center h-100">
           <img src="images/${item.image}" alt="${item.name}" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover;">
           <h6 class="fw-bold mb-2">${item.heading}</h6>
           <p class="small fst-italic text-muted">"${item.message}"</p>
@@ -287,3 +287,11 @@ for (let i = 0; i < testimonials.length; i += 3) {
     `;
   carouselInner.insertAdjacentHTML("beforeend", slideHTML);
 }
+
+// Go to top button 
+document.getElementById("scrollToTopBtn").addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});

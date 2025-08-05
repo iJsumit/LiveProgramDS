@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K6VS5DPM');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iJaipuria</title>
@@ -14,6 +25,11 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6VS5DPM" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- HEADER SECTION -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
@@ -41,7 +57,8 @@
               <a class="nav-link" href="#faculties">Faculty</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ms-3 bg-orange border-0 ijbtn" href="#enroll">Download Brochure</a>
+              <a class="btn btn-primary ms-3 bg-orange border-0 ijbtn" href="brochure.pdf" download>Download
+                Brochure</a>
             </li>
           </ul>
         </div>
@@ -91,7 +108,7 @@
         <div class="col-lg-6">
           <div class="card hero-form-card p-4 rounded-4 shadow-lg">
             <h5 class="mb-4 text-dark text-center">Join the Program</h5>
-            <form id="hero-form-ija" action="demo.php" method="POST">
+            <form id="hero-form-ija" action="mail.php" method="POST">
               <div class="row g-3">
                 <div class="col-md-6">
                   <input type="text" name="fName" class="form-control" placeholder="First Name" required />
@@ -149,7 +166,7 @@
           <div>
             <small class="text-muted">DURATION</small>
             <h6 class="fw-bold mb-1">10 Weeks</h6>
-            <p class="mb-0 text-muted small">(4–8 hours/week)</p>
+            <p class="mb-0 text-muted small">(4-8 hours/week)</p>
           </div>
         </div>
 
@@ -690,13 +707,17 @@
     <div class="overlay"></div>
     <div class="cta-urgency-wrapper">
       <h2 class="cta-urgency-heading">WAITING DOESN’T WIN RAISES</h2>
-      <h4 class="cta-urgency-subtext">While you're thinking, others are transforming:</h4>
+      <h3 class="cta-urgency-subtext">While you're thinking, others are transforming:</h3>
 
       <ul class="cta-urgency-points">
-        <li><strong>Data Science roles</strong> growing 35% year-over-year</li>
-        <li><strong>Average salary increase</strong> for skilled professionals: 45%</li>
-        <li><strong>AI-powered roles</strong> commanding 70% premium over traditional positions</li>
-        <li><strong>Entry barriers</strong> increase every month as competition intensifies</li>
+        <li><i class="bi bi-chevron-double-right text-orange"></i>&nbsp;<strong>Data Science roles</strong> growing 35%
+          year-over-year</li>
+        <li><i class="bi bi-chevron-double-right text-orange"></i>&nbsp;<strong>Average salary increase</strong> for
+          skilled professionals: 45%</li>
+        <li><i class="bi bi-chevron-double-right text-orange"></i>&nbsp;<strong>AI-powered roles</strong> commanding 70%
+          premium over traditional positions</li>
+        <li><i class="bi bi-chevron-double-right text-orange"></i>&nbsp;<strong>Entry barriers</strong> increase every
+          month as competition intensifies</li>
       </ul>
 
       <div class="cta-urgency-cards">
@@ -825,8 +846,8 @@
         </div>
       </div>
 
-      <div class="text-center mt-4">
-        <a href="#" class="ija-download-btn btn btn-lg">Download Brochure</a>
+      <div class="text-center mt-5">
+        <button type="button" class="btn ija-download-btn" id="scrollToTopBtn">Download Brochure</button>
       </div>
     </div>
   </section>
