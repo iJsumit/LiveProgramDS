@@ -1,43 +1,82 @@
 <?php
-// Sample Form Data (replace with actual $_POST if coming from form)
-$data = [
-    "FirstName" => $_POST['fname'] ?? '',
-    "LastName" => $_POST['lname'] ?? '',
+
+session_start(); // Always needed to use $_SESSION
+
+// Store UTM from URL to session on first visit
+if (!isset($_SESSION['utm_source']) && isset($_GET['utm_source'])) {
+    $_SESSION['utm_source'] = $_GET['utm_source'];
+    $_SESSION['utm_medium'] = $_GET['utm_medium'] ?? '';
+    $_SESSION['utm_campaign'] = $_GET['utm_campaign'] ?? '';
+    $_SESSION['utm_term'] = $_GET['utm_term'] ?? '';
+    $_SESSION['utm_content'] = $_GET['utm_content'] ?? '';
+}
+// Step 1: Prepare form data
+
+$rawData = [
+    "FirstName"    => $_POST['fname'] ?? '',
+    "LastName"     => $_POST['lname'] ?? '',
     "EmailAddress" => $_POST['email'] ?? '',
-    "Phone" => $_POST['phone'] ?? '',
-    "Experience" => $_POST['experience'] ?? '',
-    "City" => $_POST['city'] ?? '',
-    "Source" => "AI Powered Data Analytics - Landing Page",
+    "Phone"        => $_POST['phone'] ?? '',
+    "Experience"   => $_POST['experience'] ?? '',
+    "City"         => $_POST['city'] ?? '',
+    "Source"       => "AI-Powered Data Science POC",
 ];
 
-// Convert to JSON
-$jsonData = json_encode($data);
+$captureUtm = [
+    'mx_utm_campaign' => $_POST['utm_campaign'] ?? '',
+    'mx_utm_source'   => $_POST['utm_source'] ?? '',
+    'mx_utm_medium'   => $_POST['utm_medium'] ?? '',
+    'mx_utm_term'     => $_POST['utm_term'] ?? '',
+    'mx_utm_content'  => $_POST['utm_content'] ?? ''
+];
 
-// LeadSquared API endpoint to create/update lead
+// Step 2: Convert to LeadSquared format
+$data = [];
+foreach ($rawData as $key => $value) {
+    $data[] = [
+        "Attribute" => $key,
+        "Value"     => $value
+    ];
+}
+
+$utmData = [];
+foreach ($captureUtm as $key => $value) {
+    $utmData[] = [
+        "Attribute" => $key,
+        "Value"     => $value
+    ];
+}
+
+// ✅ Combine both arrays
+$combinedData = array_merge($data, $utmData);
+$jsonData = json_encode($combinedData);
+
+// Step 3: API URL with accessKey and secretKey
 $url = "https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture";
+$accessKey = 'u$r12655856dd0e79352834b4c9f0d22c35'; // wrap in single quotes
+$secretKey = 'a8e09685f4f7313da323cd56f1604e6a26832757';
 
-// Your Access Key and Secret Key (replace with real values)
-$accessKey = "u$r12655856dd0e79352834b4c9f0d22c35";
-$secretKey = "a8e09685f4f7313da323cd56f1604e6a26832757";
+$query = http_build_query([
+    'accessKey' => $accessKey,
+    'secretKey' => $secretKey
+]);
 
-// Build full URL with keys
-$fullUrl = $url . "?accessKey=$accessKey&secretKey=$secretKey";
+$fullUrl = $url . '?' . $query;
 
-// Initialize cURL
+// Step 4: cURL call
 $ch = curl_init($fullUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json'
+]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
 
-// Execute request
 $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-// Close cURL
 curl_close($ch);
 
-// Debug response
+// Step 5: Debug output
 if ($httpCode === 200) {
     echo "Lead submitted successfully.";
 } else {
