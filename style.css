@@ -29,6 +29,10 @@ html {
   background: #FF8000 !important;
 }
 
+
+.discountPrice{
+  font-size: 20px;
+}
 /* Header Section  */
 header>nav {
   height: 90px;
