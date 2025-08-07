@@ -60,6 +60,7 @@ for (const sectionId in toolsData) {
   });
 }
 
+// testimonials 
 function scrollTestimonials(direction) {
   const container = document.getElementById("testimonial-scroll");
   const scrollAmount = 350;
@@ -70,50 +71,27 @@ function scrollTestimonials(direction) {
 }
 
 // Get Form Values
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.getElementById("hero-form-ija");
-
-//   if (form) {
-//     form.addEventListener("submit", function (e) {
-//       e.preventDefault();
-
-//       const formData = new FormData(form);
-
-//       fetch("send-email.php", {
-//         method: "POST",
-//         body: formData,
-//       })
-//         .then((response) => response.json())
-//         .then((result) => {
-//           if (result.success) {
-//             alert("Your message has been sent successfully!");
-//             form.reset();
-//           } else {
-//             alert("Error: " + result.message);
-//           }
-//         })
-//         .catch((error) => {
-//           alert("An error occurred while sending the email.");
-//           console.error(error);
-//         });
-//     });
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("hero-form-ija");
   const submitBtn = form.querySelector("button[type='submit']");
 
+  // On form submit: disable button and store flag
   form.addEventListener("submit", function () {
     submitBtn.disabled = true;
     submitBtn.innerText = "Submitting...";
+    sessionStorage.setItem("formSubmitted", "true");
   });
+
+  // On page load after submission: show thank you, hide form
+  if (sessionStorage.getItem("formSubmitted") === "true") {
+    document.getElementById("form-wrapper").style.display = "none";
+    document.getElementById("thank-you-message").style.display = "block";
+    sessionStorage.removeItem("formSubmitted");
+  }
 });
 
 
-
 // REcruiters
-
 const fileExtensions = {
   1: "jpeg",
   2: "png",
@@ -294,4 +272,17 @@ document.getElementById("scrollToTopBtn").addEventListener("click", function () 
     top: 0,
     behavior: "smooth"
   });
+});
+
+// UTM 
+function getUTMParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param) || '';
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("utm_source").value = getUTMParam("utm_source");
+  document.getElementById("utm_medium").value = getUTMParam("utm_medium");
+  document.getElementById("utm_campaign").value = getUTMParam("utm_campaign");
+  document.getElementById("utm_content").value = getUTMParam("utm_content");
 });

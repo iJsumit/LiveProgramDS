@@ -10,16 +10,17 @@ if (!isset($_SESSION['utm_source']) && isset($_GET['utm_source'])) {
     $_SESSION['utm_term'] = $_GET['utm_term'] ?? '';
     $_SESSION['utm_content'] = $_GET['utm_content'] ?? '';
 }
-// Step 1: Prepare form data
+// Step 1: Prepare form data 
 
 $rawData = [
-    "FirstName"    => $_POST['fname'] ?? '',
-    "LastName"     => $_POST['lname'] ?? '',
+    "FirstName"    => $_POST['fName'] ?? '',
+    "LastName"     => $_POST['lName'] ?? '',
     "EmailAddress" => $_POST['email'] ?? '',
     "Phone"        => $_POST['phone'] ?? '',
-    "Experience"   => $_POST['experience'] ?? '',
-    "City"         => $_POST['city'] ?? '',
-    "Source"       => "AI-Powered Data Science POC",
+    "mx_Experience_Level"   => $_POST['experience'] ?? '',
+    "mx_City"         => $_POST['city'] ?? '',
+    "Source"       => 'AI Powered Data Analytics - Landing Page',
+    "mx_Course"       => 'AI-Powered Data Science POC',
 ];
 
 $captureUtm = [
@@ -78,8 +79,9 @@ curl_close($ch);
 
 // Step 5: Debug output
 if ($httpCode === 200) {
-    echo "Lead submitted successfully.";
+    header("Location: index.html");
+exit();
 } else {
-    echo "Error submitting lead. Response: " . $response;
+    echo "Something Went Wrong ! Please Try Again " . $response;
 }
 ?>

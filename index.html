@@ -34,7 +34,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="https://www.ijaipuria.com/">
+        <a class="navbar-brand fw-bold" href="#">
           <img src="images/logo.png" alt="iJaipuria" class="header_logo" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -73,7 +73,7 @@
     <div class="container">
       <div class="row align-items-center py-5">
         <!-- LEFT: Content -->
-        <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+        <div class="col-lg-6 order-1 order-lg-1 text-center text-lg-start mb-4 mb-lg-0">
           <h1 class="display-4 fw-bold heading">AI-Powered Data Analytics</h1>
           <ul class="subheading">
             <li>
@@ -105,11 +105,18 @@
         </div>
 
         <!-- RIGHT: Signup Form -->
-        <div class="col-lg-6">
-          <div class="card hero-form-card p-4 rounded-4 shadow-lg">
+        <div class="col-lg-6 order-2 order-lg-2">
+          <div class="card hero-form-card p-4 rounded-4 shadow-lg" id="form-wrapper">
             <h5 class="mb-4 text-dark text-center">Join the Program</h5>
             <form id="hero-form-ija" action="mail.php" method="POST">
               <div class="row g-3">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="utm_term" id="utm_term">
+                <input type="hidden" name="utm_content" id="utm_content">
+                <!-- Utm Parameters Capturing -->
+
                 <div class="col-md-6">
                   <input type="text" name="fName" class="form-control" placeholder="First Name" required />
                 </div>
@@ -123,8 +130,9 @@
                   <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required />
                 </div>
                 <div class="col-md-6">
-                  <select name="experience" class="form-control" required>
+                  <select name="mx_Experience_Level" class="form-control" required>
                     <option value="" disabled selected>Experience</option>
+                    <!-- <option value="graduate">Graduate</option> -->
                     <option value="zero_two">0&ndash;2 years</option>
                     <option value="tow_five">2&ndash;5 years</option>
                     <option value="five_ten">5&ndash;10 years</option>
@@ -142,6 +150,17 @@
               </div>
             </form>
           </div>
+          <!-- Hidden Thank You Message -->
+          <div id="thank-you-message" class="thank-you-card text-center" style="display: none;">
+            <div class="thank-you-icon mb-3">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+            <h3 class="thank-you-heading">Thank You for Registering!</h3>
+            <p class="thank-you-subheading">
+              Your submission has been received. <br> Our team will reach out to you shortly.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -212,7 +231,7 @@
   </section>
 
   <!-- PROGRAM HIGHLIGHTS SECTION -->
-  <section class="highlights-section py-5">
+  <section class="highlights-section py-5" id="program">
     <div class="container text-center">
       <h2 class="section-title mb-4 text-white">Program Highlights</h2>
       <div class="row g-4 pt-4">
@@ -465,7 +484,7 @@
 
         <!-- RIGHT: PIE CHART -->
         <div class="col-md-6 text-center">
-          <h2 class="section-title mb-4 text-white">Previous Batch Demographics</h2>
+          <h2 class="section-title mb-4 text-white pieChartMobileHeading">Previous Batch Demographics</h2>
           <canvas id="audiencePieChart"></canvas>
         </div>
       </div>
@@ -738,7 +757,7 @@
         </div>
       </div>
 
-      <a href="#enroll" class="cta-urgency-button">SECURE YOUR SPOT BEFORE PRICE INCREASE</a>
+      <!-- <a href="#enroll" class="cta-urgency-button">SECURE YOUR SPOT BEFORE PRICE INCREASE</a> -->
     </div>
   </section>
 
@@ -860,7 +879,7 @@
           <h5 class="ija-footer-brand mb-2">AI Data Science Mastery</h5>
           <p class="ija-footer-text">
             A cutting-edge course built by <strong>iJaipuria</strong> — 80+
-            Years of Legacy in Business & Education.
+            Years of Legacy in Education.
           </p>
         </div>
 
@@ -871,9 +890,9 @@
               <a href="#program" class="ija-footer-link">The Programme</a>
             </li>
             <li>
-              <a href="#mentors" class="ija-footer-link">Mentors & Experts</a>
+              <a href="#faculties" class="ija-footer-link">Mentors & Experts</a>
             </li>
-            <li><a href="#projects" class="ija-footer-link">Projects</a></li>
+            <!-- <li><a href="#projects" class="ija-footer-link">Projects</a></li> -->
             <li><a href="#faq" class="ija-footer-link">FAQs</a></li>
           </ul>
         </div>
