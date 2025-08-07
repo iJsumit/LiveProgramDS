@@ -13,22 +13,22 @@ if (!isset($_SESSION['utm_source']) && isset($_GET['utm_source'])) {
 // Step 1: Prepare form data 
 
 $rawData = [
-    "FirstName"    => $_POST['fName'] ?? '',
-    "LastName"     => $_POST['lName'] ?? '',
+    "FirstName" => $_POST['fName'] ?? '',
+    "LastName" => $_POST['lName'] ?? '',
     "EmailAddress" => $_POST['email'] ?? '',
-    "Phone"        => $_POST['phone'] ?? '',
-    "mx_Experience_Level"   => $_POST['experience'] ?? '',
-    "mx_City"         => $_POST['city'] ?? '',
-    "Source"       => 'AI Powered Data Analytics - Landing Page',
-    "mx_Course"       => 'AI-Powered Data Science POC',
+    "Phone" => $_POST['phone'] ?? '',
+    "mx_Experience_Level" => $_POST['experience'] ?? '',
+    "mx_City" => $_POST['city'] ?? '',
+    "Source" => 'AI Powered Data Analytics - Landing Page',
+    "mx_Course" => 'AI-Powered Data Science POC',
 ];
 
 $captureUtm = [
     'mx_utm_campaign' => $_POST['utm_campaign'] ?? '',
-    'mx_utm_source'   => $_POST['utm_source'] ?? '',
-    'mx_utm_medium'   => $_POST['utm_medium'] ?? '',
-    'mx_utm_term'     => $_POST['utm_term'] ?? '',
-    'mx_utm_content'  => $_POST['utm_content'] ?? ''
+    'mx_utm_source' => $_POST['utm_source'] ?? '',
+    'mx_utm_medium' => $_POST['utm_medium'] ?? '',
+    'mx_utm_term' => $_POST['utm_term'] ?? '',
+    'mx_utm_content' => $_POST['utm_content'] ?? ''
 ];
 
 // Step 2: Convert to LeadSquared format
@@ -36,7 +36,7 @@ $data = [];
 foreach ($rawData as $key => $value) {
     $data[] = [
         "Attribute" => $key,
-        "Value"     => $value
+        "Value" => $value
     ];
 }
 
@@ -44,7 +44,7 @@ $utmData = [];
 foreach ($captureUtm as $key => $value) {
     $utmData[] = [
         "Attribute" => $key,
-        "Value"     => $value
+        "Value" => $value
     ];
 }
 
@@ -80,8 +80,9 @@ curl_close($ch);
 // Step 5: Debug output
 if ($httpCode === 200) {
     header("Location: index.html");
-exit();
+    exit();
 } else {
-    echo "Something Went Wrong ! Please Try Again " . $response;
+    // echo "Something Went Wrong ! Please Try Again " . $response;
+    header("Location: error.html");
+    exit();
 }
-?>

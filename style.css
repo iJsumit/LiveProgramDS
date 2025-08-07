@@ -47,21 +47,21 @@ a.header_logo:focus-visible {
 /* Media Query For Header Section  */
 @media (max-width: 768px) {
 
-header>nav {
-  height: 65px;
-}
+  header>nav {
+    height: 65px;
+  }
 
-.navbar>.container {
-  background: #fff;
-  padding: 10px;
-  /* border-radius: 10px; */
-}
+  .navbar>.container {
+    background: #fff;
+    padding: 10px;
+    /* border-radius: 10px; */
+  }
 
-.header_logo {
-  width: 120px;
-  height: auto;
-  padding-left: 10px;
-}
+  .header_logo {
+    width: 120px;
+    height: auto;
+    padding-left: 10px;
+  }
 }
 
 /* Hero Section  */
@@ -141,12 +141,14 @@ header>nav {
   font-weight: 400;
 }
 
-.hero-form-card .btn-primary {
+.hero-form-card .btn-primary,
+#thank-you-message .btn-primary {
   background-color: #FF8000;
   border-color: #FF8000;
 }
 
-.hero-form-card .btn-primary:hover {
+.hero-form-card .btn-primary:hover,
+#thank-you-message .btn-primary:hover {
   background-color: #e67000;
   border-color: #e67000;
 }
@@ -1420,4 +1422,24 @@ header>nav {
 .ija-footer-link:hover {
   color: #FF8000;
   text-decoration: underline;
+}
+
+/* Error Page  */
+.cover-background {
+  background: url(images/error.jpg) center top/cover no-repeat;
+}
+
+.cover-background i {
+  font-size: 100px;
+  color: #ffffff;
+}
+
+.cover-background a {
+  background: #FF8000;
+  color: #FFFFFF;
+}
+
+.cover-background a:hover {
+  background: #001E51;
+  color: #FFFFFF;
 }
