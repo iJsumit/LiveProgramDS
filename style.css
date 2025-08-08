@@ -98,7 +98,6 @@ a.header_logo:focus-visible {
 
 .heading {
   transform: translateX(800px);
-  /* start 100px to the left */
   animation: slideInLeft 1s ease-out forwards;
 }
 
