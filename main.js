@@ -170,8 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // REcruiters
-
-
   const marqueeTrack = document.getElementById("marqueeTrack");
 
   function addImages() {
