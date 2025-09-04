@@ -45,34 +45,6 @@ const toolsData = {
   ],
 };
 
-const fileExtensions = {
-  1: "jpeg",
-  2: "png",
-  3: "png",
-  4: "jpg",
-  5: "png",
-  6: "png",
-  7: "jpg",
-  8: "jpg",
-  9: "png",
-  10: "jpeg",
-  11: "png",
-  12: "png",
-  13: "png",
-  14: "jpeg",
-  15: "png",
-  16: "png",
-  17: "jpg",
-  18: "jpeg",
-  19: "png",
-  20: "png",
-  21: "png",
-  22: "jpg",
-  23: "png",
-  24: "png",
-  25: "jpg",
-};
-
 const testimonials = [
   {
     heading: "“From confused to confident in 10 weeks.”",
@@ -174,9 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addImages() {
     for (let i = 1; i <= 25; i++) {
-      const ext = fileExtensions[i];
       const img = document.createElement("img");
-      img.src = `images/recruiters/${i}.${ext}`;
+      img.src = `images/recruiters/${i}.png`;
       img.alt = `Recruiter ${i}`;
       marqueeTrack.appendChild(img);
     }
