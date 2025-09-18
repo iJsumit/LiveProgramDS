@@ -30,9 +30,10 @@ html {
 }
 
 
-.discountPrice{
+.discountPrice {
   font-size: 20px;
 }
+
 /* Header Section  */
 header>nav {
   height: 90px;
@@ -144,17 +145,17 @@ a.header_logo:focus-visible {
   font-weight: 400;
 }
 
-.hero-form-card .btn-primary,
-#thank-you-message .btn-primary {
+:is(.hero-form-card, #thank-you-message, #error-message) .btn-primary {
   background-color: #FF8000;
   border-color: #FF8000;
+  font-weight: 500;
 }
 
-.hero-form-card .btn-primary:hover,
-#thank-you-message .btn-primary:hover {
-  background-color: #e67000;
-  border-color: #e67000;
+:is(.hero-form-card, #thank-you-message, #error-message) .btn-primary:hover {
+  background-color: #122E5D;
+  border-color: #122E5D;
 }
+
 
 /* Thank You After Form Submit */
 .thank-you-card {

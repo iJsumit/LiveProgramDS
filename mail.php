@@ -79,10 +79,18 @@ curl_close($ch);
 
 // Step 5: Debug output
 if ($httpCode === 200) {
-    header("Location: index.html");
+    // header("Location: index.html");
+    $response = [
+        'statusCode' => 200,
+        'message' => 'Success! The operation was completed.'
+    ];
     exit();
 } else {
     // echo "Something Went Wrong ! Please Try Again " . $response;
-    header("Location: error.html");
+    // header("Location: error.html");
+    $response = [
+        'statusCode' => $httpCode, // Use the actual error code
+        'message' => 'Something went wrong! Please try again.'
+    ];
     exit();
 }

@@ -134,7 +134,8 @@
         <div class="col-lg-6 order-2 order-lg-2">
           <div class="card hero-form-card p-4 rounded-4 shadow-lg" id="form-wrapper">
             <h5 class="mb-4 text-dark text-center">Join the Program</h5>
-            <form id="hero-form-ija" action="mail.php" method="POST">
+            <!-- <form id="hero-form-ija" action="mail.php" method="POST"> -->
+            <form id="hero-form-ija">
               <div class="row g-3">
                 <input type="hidden" name="utm_source" id="utm_source">
                 <input type="hidden" name="utm_medium" id="utm_medium">
@@ -153,21 +154,23 @@
                   <input type="email" name="email" class="form-control" placeholder="Email Address" required />
                 </div>
                 <div class="col-md-6">
-                  <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required />
-                </div>
-                <div class="col-md-6">
-                  <select name="mx_Experience_Level" class="form-control" required>
-                    <option value="" disabled selected>Experience</option>
-                    <!-- <option value="graduate">Graduate</option> -->
-                    <option value="zero_two">0&ndash;2 years</option>
-                    <option value="tow_five">2&ndash;5 years</option>
-                    <option value="five_ten">5&ndash;10 years</option>
-                    <option value="ten_thirty">10&ndash;30 years</option>
-                  </select>
+                  <input type="tel" name="phone" class="form-control" placeholder="Phone Number" maxlength="10"
+                    required />
                 </div>
                 <div class="col-md-6">
                   <input type="text" name="city" class="form-control" placeholder="City" required />
                 </div>
+                <div class="col-md-6">
+                  <select name="experience" class="form-control" required>
+                    <option value="" disabled selected>Experience</option>
+                    <!-- <option value="graduate">Graduate</option> -->
+                    <option value="0-2Y">0&ndash;2 years</option>
+                    <option value="2-5Y">2&ndash;5 years</option>
+                    <option value="5-10Y">5&ndash;10 years</option>
+                    <option value="10-30Y">10&ndash;30 years</option>
+                  </select>
+                </div>
+
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary w-100">
                     Apply Now
@@ -187,6 +190,16 @@
             </p>
             <a href="brochure.pdf" download><button type="button" class="btn btn-primary w-100">Download
                 Brochure</button></a>
+
+          </div>
+          <!-- Hidden Error Message -->
+          <div id="error-message" class="thank-you-card text-center" style="display: none;">
+            <div class="thank-you-icon mb-3">
+              <img width="94" height="94" src="https://img.icons8.com/3d-fluency/94/speak-no-evil-monkey-1.png"
+                alt="Error" />
+            </div>
+            <h3 class="thank-you-heading">Oops! Something went wrong!</h3>
+            <button type="button" id="tryAgain" class="btn btn-primary w-100 mt-4">Try Again</button>
 
           </div>
         </div>
