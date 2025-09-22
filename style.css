@@ -2,6 +2,45 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Preloader overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  /* can change to dark if you want */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #FF8000;
+  /* your orange */
+  border-right: 6px solid #122E5D;
+  /* your blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* Global CSS  */
 .ijbtn:hover,
 .ijbtn:focus {
@@ -143,6 +182,12 @@ a.header_logo:focus-visible {
 .hero-form-card input::placeholder {
   color: #666;
   font-weight: 400;
+}
+
+.error {
+  display: block;
+  color: #e74c3c;
+  font-size: 14px;
 }
 
 :is(.hero-form-card, #thank-you-message, #error-message) .btn-primary {

@@ -81,21 +81,38 @@ const testimonials = [
   },
 ];
 
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  preloader.style.opacity = "0";
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 500);
+});
+
+
 // ===== Utility Functions =====
 function getUTMParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param) || '';
 }
-function showError(msg) { alert(msg); }
-function validateForm({ fName, lName, email, phone }) {
+
+function showError(id, msg) { document.getElementById(id + 'Error').innerHTML = msg }
+
+
+function validateForm({ fName, lName, email, phone, city }) {
   const nameRegex = /^[A-Za-z\s]+$/;
+  const cityRegex = /^[A-Za-z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[6-9]\d{9}$/;
-  if (!nameRegex.test(fName) || !nameRegex.test(lName)) return "Names must contain only letters.";
-  if (!emailRegex.test(email)) return "Enter a valid email.";
-  if (!phoneRegex.test(phone)) return "Please enter a valid phone number.";
+
+  if (!nameRegex.test(fName)) return { id: "fName", message: "First name must contain only letters." };
+  if (!nameRegex.test(lName)) return { id: "lName", message: "Last name must contain only letters." };
+  if (!emailRegex.test(email)) return { id: "email", message: "Enter a valid email." };
+  if (!phoneRegex.test(phone)) return { id: "phone", message: "Please enter a valid phone number." };
+  if (!cityRegex.test(city)) return { id: "city", message: "Please enter a valid city." };
   return null;
 }
+
 
 // ===== DOM Ready Logic =====
 document.addEventListener("DOMContentLoaded", function () {
@@ -106,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initRecruitersMarquee();
   initAudiencePieChart();
   populateUTMFields();
-  initBackToHome();
 });
 
 // ===== Feature: Tool Cards =====
@@ -148,6 +164,15 @@ function initTestimonialsCarousel() {
   }
 }
 
+// Clear Form Error Messages 
+function clearAllErrors() {
+  const errorSpans = document.querySelectorAll(".error");
+  errorSpans.forEach(span => {
+    span.innerHTML = "";
+  });
+}
+
+
 // Send Data To Google Sheets
 function formToSheet(formData) {
   fetch("https://script.google.com/macros/s/AKfycbwWHtGRd7bQoR_xw4OfH-cWwOtSrRGSlGfqAArV4Oei_kz_mTGUzVFNkeWfiTQJGj-Ezw/exec", { method: 'POST', body: formData });
@@ -158,25 +183,32 @@ function initFormHandler() {
   const form = document.getElementById("hero-form-ija");
   if (!form) return;
   const submitBtn = form.querySelector("button[type='submit']");
+
+  form.addEventListener("input", () => {
+    if (form.checkValidity()) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  });
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+    clearAllErrors();
     const formFields = {
       fName: form.fName.value.trim(),
       lName: form.lName.value.trim(),
       email: form.email.value.trim(),
-      phone: form.phone.value.trim()
+      phone: form.phone.value.trim(),
+      city: form.city.value.trim()
     };
     const errorMsg = validateForm(formFields);
-    if (errorMsg) return showError(errorMsg);
+    if (errorMsg) return showError(errorMsg.id, errorMsg.message);
 
     const formData = new FormData(form);
     submitBtn.disabled = true;
     submitBtn.innerText = "Submitting...";
     sessionStorage.setItem("formSubmitted", "true");
-
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
     try {
       const res = await fetch("mail.php", { method: "POST", body: formData });
       if (res.ok) { showThankYou(); } else { showErrorMessage(); }
@@ -184,7 +216,6 @@ function initFormHandler() {
       formData.append('statusCode', res.status);
       formToSheet(formData);
     } catch (err) {
-      console.error("Fetch Error:", err);
       formToSheet(formData);
       showErrorMessage();
       submitBtn.disabled = false;
@@ -275,16 +306,6 @@ function populateUTMFields() {
   });
 }
 
-// ===== Feature: Return Home from Error Page =====
-// function initBackToHome() {
-//   const backBtn = document.querySelector(".backToHome");
-//   if (!backBtn) return;
-//   backBtn.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     sessionStorage.setItem("formSubmitted", "false");
-//     window.location.href = "index.html";
-//   });
-// }
 document.getElementById("tryAgain").addEventListener("click", function () {
   location.reload();
 });

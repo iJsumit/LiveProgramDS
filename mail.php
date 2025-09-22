@@ -48,7 +48,7 @@ foreach ($captureUtm as $key => $value) {
     ];
 }
 
-// ✅ Combine both arrays
+// Combine both arrays
 $combinedData = array_merge($data, $utmData);
 $jsonData = json_encode($combinedData);
 
@@ -79,18 +79,19 @@ curl_close($ch);
 
 // Step 5: Debug output
 if ($httpCode === 200) {
-    // header("Location: index.html");
     $response = [
         'statusCode' => 200,
         'message' => 'Success! The operation was completed.'
     ];
+    header('Content-Type: application/json');
+    echo json_encode($response);
     exit();
 } else {
-    // echo "Something Went Wrong ! Please Try Again " . $response;
-    // header("Location: error.html");
     $response = [
-        'statusCode' => $httpCode, // Use the actual error code
+        'statusCode' => $httpCode,
         'message' => 'Something went wrong! Please try again.'
     ];
+    header('Content-Type: application/json');
+    echo json_encode($response);
     exit();
 }
